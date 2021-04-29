@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/1728317209/Leetcode2021#readme",
   "devDependencies": {
+    "eslint": "^7.25.0",
     "prettier": "2.2.1"
   }
 }
