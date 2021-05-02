@@ -1,11 +1,20 @@
 {
+	"parser": "babel-eslint",
 	"env": {
-		"browser": true,
-		"es2021": true
+		"es6": true // Promise 不需要定义了
 	},
-	"extends": "eslint:recommended",
-	"parserOptions": {
-		"ecmaVersion": 12,
-		"sourceType": "module"
+	"extends": "airbnb-base",
+	"rules": {
+		"no-trailing-spaces": "error",
+		"no-unused-vars": ["error", { "varsIgnorePattern": "^regeneratorRuntime" }],
+		"camelcase": "off",
+		"import/prefer-default-export": "off",
+		"arrow-parens": ["error", "as-needed"],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true
+      }
+    ]
 	}
 }
