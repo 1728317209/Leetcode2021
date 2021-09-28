@@ -5,6 +5,14 @@ class Node {
     this.val = val;
     this.next = next;
   }
+
+  forEach(callback) {
+    let cur = this;
+    while (cur) {
+      callback(cur.val);
+      cur = cur.next;
+    }
+  }
 }
 
 // function arrToLinkedList(arr) {
@@ -26,4 +34,18 @@ function arrToLinkedList(arr) {
   return node;
 }
 
-console.log(arrToLinkedList([1, 2, 3, 4, 5]));
+function forEach(linkedList, callback) {
+  let root = linkedList;
+  while (root) {
+    callback(root.val);
+    root = root.next;
+  }
+}
+
+// console.log(arrToLinkedList([1, 2, 3, 4, 5]));
+
+module.exports = {
+  Node,
+  forEach,
+  arrToLinkedList,
+};
