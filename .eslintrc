@@ -3,7 +3,10 @@
 	"env": {
 		"es6": true // Promise 不需要定义了
 	},
-	"extends": "airbnb-base",
+	"extends": ["airbnb-base", "prettier"],
+	"plugins": [
+		"prettier"
+	],
 	"rules": {
 		"no-trailing-spaces": "error",
 		"no-unused-vars": ["error", { "varsIgnorePattern": "^regeneratorRuntime" }],
