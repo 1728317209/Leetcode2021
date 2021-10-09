@@ -4,20 +4,20 @@ const { arrToLinkedList } = require('./a');
  * 反转链表
  * 使用三指针
  */
-function fn(root) {
-  let pre = null;
-  let cur = root;
-  let { next } = cur;
+function fn(head) {
+  if (!head) {
+    return head;
+  }
+
+  let pre = head;
+  let cur = head.next;
   while (cur) {
+    const { next } = cur;
     cur.next = pre;
     pre = cur;
     cur = next;
-    next = next ? next.next : null;
-    console.log('fn -> pre', pre);
-    console.log('fn -> cur', cur);
-    console.log('fn -> next', next);
+    head.next = cur;
   }
-
   return pre;
 }
 

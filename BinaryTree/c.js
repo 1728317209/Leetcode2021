@@ -1,10 +1,13 @@
 // 在手写一遍
 
+let depth = 0;
 function preOrderTraversal(root) {
   if (root) {
-    console.log(root.val);
+    depth += 1;
+    console.log(root.val, depth);
     preOrderTraversal(root.left);
     preOrderTraversal(root.right);
+    depth -= 1;
   }
 }
 

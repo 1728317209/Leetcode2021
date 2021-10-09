@@ -1,21 +1,19 @@
-// https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
-
 /**
  * @param {string} s
  * @return {number}
  */
 function lengthOfLongestSubstring(s) {
-  let len = 0;
-  let list = []; // 保存当前正在找的字符串
-  for (let i = 0; i < s.length; i++) {
-    if (!list.includes(s[i])) {
-      list.push(s[i]);
-    } else {
-      len = Math.max(len, list.length);
-      list = [...list.slice(list.indexOf(s[i]) + 1), s[i]];
+  let result = 0;
+  const set = new Set();
+  let rk = -1;
+  // i 每次向后移动一位，set 中是 以 i 开头的不重复的 substring
+  for (let i = 0; i < s.length; i += 1) {
+    while (rk + 1 < s.length && !set.has(s[rk + 1])) {
+      set.add(s[rk + 1]);
+      rk += 1;
     }
+    result = Math.max(result, rk + 1 - i);
+    set.delete(s[i]); // 每轮结束 s[i]
   }
-  return Math.max(len, list.length);
+  return result;
 }
-
-console.log(lengthOfLongestSubstring('abcabcbb'));
