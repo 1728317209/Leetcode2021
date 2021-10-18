@@ -47,6 +47,7 @@ function merge(arr1, arr2) {
   return result;
 }
 
+console.log(mergeSort([-1, 5, 3, 4, 0]).join(', '));
 console.log(
   mergeSort([3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48]).join(', ')
 );

@@ -9,6 +9,7 @@ function maxSubArray(nums) {
       nums[i] += nums[i - 1];
     }
   }
+  console.log('maxSubArray -> nums', nums);
   return Math.max(...nums);
 }
 
