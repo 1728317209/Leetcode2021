@@ -10,7 +10,7 @@ function selectionSort1(arr) {
     let min = arr[start];
     let minIndex = start;
     let max = -Infinity;
-    let maxIndex = arr[end];
+    let maxIndex = end;
     for (let i = start; i <= end; i += 1) {
       if (arr[i] < min) {
         min = arr[i];
@@ -38,5 +38,5 @@ function selectionSort1(arr) {
   return arr;
 }
 
-const arr = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
+const arr = [3, 44, 5, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
 console.log(selectionSort1(arr).join(', '));

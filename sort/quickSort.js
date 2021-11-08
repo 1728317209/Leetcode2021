@@ -6,23 +6,28 @@
  * 快速排序
  */
 function quickSort(arr) {
+  console.log('quickSort -> arr', arr);
   if (arr.length <= 1) {
     return arr;
   }
 
   const middleIndex = Math.floor(arr.length / 2);
-  const middleValue = arr[middleIndex];
   const leftArr = [];
+  const middleArr = [];
   const rightArr = [];
   for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i] < middleValue) {
+    if (arr[i] < arr[middleIndex]) {
       leftArr.push(arr[i]);
-    } else if (arr[i] > middleValue) {
+    } else if (arr[i] > arr[middleIndex]) {
       rightArr.push(arr[i]);
+    } else {
+      middleArr.push(arr[i]);
     }
   }
-  return [...quickSort(leftArr), middleValue, ...quickSort(rightArr)];
+  console.log('quickSort -> leftArr', leftArr);
+  console.log('quickSort -> rightArr', rightArr);
+  return [...quickSort(leftArr), ...middleArr, ...quickSort(rightArr)];
 }
 
-const arr = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
-console.log(quickSort(arr, 0, arr.length - 1).join(', ')); // [2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]
+const arr = [3, 44, 38, 5, 47, 15, 5, 36, 26, 27, 2, 46, 4, 19, 50, 48];
+console.log(quickSort(arr).join(', ')); // [2, 3, 4, 5, 15, 19, 26, 27, 36, 38, 44, 46, 47, 48, 50]

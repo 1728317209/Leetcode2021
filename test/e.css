@@ -1,0 +1,20 @@
+/* 三列 左右200 宽度自适应 */
+.container {
+  position: relative;
+  display: flex;
+}
+
+.item1 {
+  width: 200px;
+}
+
+.item2 {
+  width: calc(100% - 400px);
+
+  /* flex: 1;
+  flex-shrink: 0; */
+}
+
+.item3 {
+  width: 200px;
+}

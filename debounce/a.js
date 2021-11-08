@@ -3,7 +3,7 @@
  *
  * 如果可以执行，函数时立即执行的 不是异步执行的
  */
-function debounce(fn, delay = 300) {
+function debounce1(fn, delay = 300) {
   let result;
   let timerId = 0;
 
@@ -18,5 +18,18 @@ function debounce(fn, delay = 300) {
       timerId = 0;
     }, delay);
     return result;
+  };
+}
+
+function debounce2(fn, delay = 300) {
+  let timer = 0;
+
+  return function debounced(...args) {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
   };
 }
